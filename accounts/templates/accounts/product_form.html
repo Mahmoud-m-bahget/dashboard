@@ -1,0 +1,33 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+{% load bootstrap %}
+<style>
+  .vcontainer {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.hcontainer {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+   
+
+</style>
+
+<div class="row vcontainer  ">
+    <div class="col-md-6 hcontainer">
+        <div class="card card-body ">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <input class="btn btn-warning" type="submit" name="">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

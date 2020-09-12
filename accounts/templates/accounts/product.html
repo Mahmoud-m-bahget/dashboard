@@ -1,0 +1,40 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+    <br>
+    <div class="row">  
+        <div class="col-md">
+            <div class="card card-body">
+                <table class='table'>
+                    <tr>
+                        <th>Product</th>
+                        <th><a  class="btn btn-warning" href="{% url 'create_product' %}">Add a product</a></th>
+                    </tr>
+                </table>        
+            </div>    
+            <div class="card card-body">
+                <table class='table'>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Descripton</th>
+                        <th>Tags</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    {% for i in products %}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.category}}</td>
+                            <td>{{i.price}}</td>
+                            <td>{{i.descripton}}</td>
+                            <td>{{i.tags.Tag}}</td>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'update_product' i.id %}">Update</a></td>
+                            <td><a class="btn btn-sm btn-danger" href="{% url 'deleteProduct' i.id %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>    
+            </div>
+        </div>  
+    </div>
+{% endblock %}
